@@ -124,7 +124,7 @@ async function loadData() {
         }
 
         // Load GeoJSON data
-        geoData = await d3.json("fsc_aggregated.geojson");
+        geoData = await d3.json("fsc_aggregated.geojson.zip");
         
         // Initialize time slider
         initializeTimeSlider();
