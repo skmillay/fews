@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Security Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Food Security Dashboard</h1>
+            <p class="subtitle">Interactive visualization of food security and SIF data across East Africa</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="control-panel">
+                    <h3>Controls</h3>
+                    
+                    <div class="control-group">
+                        <label for="countrySelect">Country</label>
+                        <select id="countrySelect">
+                            <option value="all">All Countries</option>
+                            <option value="0">Somalia</option>
+                            <option value="1">Ethiopia</option>
+                            <option value="2">Burundi</option>
+                            <option value="3">South Sudan</option>
+                            <option value="4">Uganda</option>
+                            <option value="5">Rwanda</option>
+                            <option value="6">Kenya</option>
+                            <option value="7">Sudan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="dataType">Heatmap Dataset</label>
+                        <select id="dataType">
+                            <option value="ipc">IPC Classification</option>
+                            <option value="sif">SIF Anomaly</option>
+                            <option value="conflict">Conflict Counts</option>
+                            <option value="fatality">Fatality Counts</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="playButton">Animation</label>
+                        <button id="playButton" class="play-button">
+                            <span class="play-icon">▶</span>
+                            <span class="pause-icon" style="display: none;">⏸</span>
+                        </button>
+                    </div>
+                    
+                    <div class="legend">
+                        <h4>Legend</h4>
+                        <div id="legendContent"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+            
+            <div class="time-series-container" id="timeSeriesContainer">
+                <button id="closeTimeSeries" class="close-button" style="display: none;">×</button>
+                <div class="time-series-content">
+                    <div id="introText" class="intro-text">
+                        <h3>About This Visualization</h3>
+                        <p>The Famine Early Warning Systems Network (FEWS NET) is a leading provider of early warning and analysis on acute food insecurity.</p>
+                        
+                        <p>The Integrated Phase Classification (IPC) acute food insecurity scale classifies areas according to a five-phase scale of increasing severity.</p>
+                        
+                        <p>Acute food insecurity is a complex outcome, typically driven by a combination of economic, natural, political, and/or social factors. The nature, location, magnitude, and duration of complex drivers, including climate, conflict, and markets & trade inform classifications.</p>
+                        
+                        <p>This visualization begins to explore the relationship between these data in East Africa. Select highlighted food security classification (FSC) units to view a time series.</p>
+                    </div>
+                    <div id="timeSeriesChart" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="time-controls-bottom">
+            <div class="time-controls-wrapper">
+                <label for="timeSlider">Time Period</label>
+                <div class="time-controls">
+                    <input type="range" id="timeSlider" min="0" max="50" value="0" step="1">
+                    <span id="timeLabel" class="time-label">2009-07</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="tooltip"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
