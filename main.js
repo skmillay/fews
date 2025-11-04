@@ -659,7 +659,7 @@ function initializeTimeSeries() {
         .attr('text-anchor', 'middle')
         .style('font-size', '12px')
         .style('fill', currentDataType === 'sif' ? '#2ca25f' : (currentDataType === 'conflict' ? '#762a83' : '#000000'))
-        .text(currentDataType === 'sif' ? 'SIF' : (currentDataType === 'conflict' ? 'Conflict' : 'Fatalities'));
+        .text(currentDataType === 'sif' ? 'SIF Anomaly' : (currentDataType === 'conflict' ? 'Conflict' : 'Fatalities'));
     
     // Create line generators
     ipcLine = d3.line()
